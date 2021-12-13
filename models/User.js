@@ -27,9 +27,8 @@ UserSchema.pre("save",function(next){
     user.aboutMe = "VOID";
     user.password = hash;
     user.userType= "Normal";
-    next();
-    
-
+    next();   
 });
+
 
 export default mongoose.model("User",UserSchema);
