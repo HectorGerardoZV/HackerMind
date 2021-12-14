@@ -1,49 +1,34 @@
-import passport from "passport";
-import local from "passport-local";;
-const localStrategy = local.Strategy;
+const passport = require("passport");
+const bcrypt= require("bcrypt");
+const strategy =require( "passport-local").Strategy;
+const User = require("../models/User");
 
-//Model reference
-import User from "../models/User.js";
-
-
-passport.use(
-    new localStrategy(
-        {
-            usernameField: "userName",
-            passwordField: "password"
-        },
-        async (userName, password, done)=>{
-            try {
-                const user = await User.findOne({
-                    where:{
-                        userName:userName
-                    }
-                });
-
-                if(!user.verifyPassword(password)){
-                    return done(null, false,{
-                        message: "Credentials Invalid"
-                    });
-                }
-                
-                return done(null, user);
-
-            } catch (error) {
-                return done(null, false,{
-                    message: "Credentials Invalid"
-                });
+//LocalStrategy
+passport.use(new strategy(
+    {
+        usernameField: "userName",
+        passwordField: "password"
+    },
+    async (userName, password, done)=>{
+        try {
+            const user = await User.findOne({userName});
+            const userValid = bcrypt.compareSync(password, user.password);
+            if(!userValid){
+                return done(null,false,{});
             }
+            return done(null, user);
+
+
+        } catch (error) {
+            return done(null, false,{});
         }
+    }
+));
 
-    )
-);
-passport.serializeUser((user,callback)=>{
-    callback(null, user);
-})
-
-passport.deserializeUser((user,callback)=>{
-    callback(null, user);
-})
-
-
-export default passport;
+passport.serializeUser((user, callback)=>{
+    callback(null,user);
+});
+passport.deserializeUser((user, callback)=>{
+    callback(null,user);
+});
+module.exports = passport;

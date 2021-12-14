@@ -1,24 +1,23 @@
-import express  from "express";
-import mongoose from "mongoose";
-import router from "./router/router.js";
-import cors from "cors";
+const express  = require("express");
+const mongoose = require ("mongoose");
+const router = require ("./router/router");
+const cors = require ("cors");
+const path = require("path");
 
 //Server creation
 const app = express();
 
-//Cors options
-const validURL = ["http://127.0.0.1:5500"];
-const corsOptions = {
-    origin: (origin, callback)=>{
-        const isExist = validURL.some(url=> url===origin);
-        if(isExist){
-            callback(null, true);
-        }else{
-            callback(new Error("Delegated Access"));
-        }
-    }
-}
-//Cors Added
+
+//Static files
+app.use(express.static("public"));
+
+//Adding pug
+app.set("view engine","pug");
+app.set("views", path.join(__dirname, "./public/view"));
+
+
+
+//Adding cors
 app.use(cors());
 
 
@@ -34,5 +33,5 @@ app.use("/",router);
 
 //Starting server
 app.listen(1000,()=>{
-    console.log("Server Started");
+    console.log("Server runing: "+1000);
 });

@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+    head
+        include helpers/Head
+    body.backAccess
+        div.accessSection
+            form.signUpForm
+                div.LogoFormSection 
+                    img(src="../img/Logo-Color.svg", alt="LogoHackerMind")
+                    h1.sloganLogo
+                        | Hacker
+                        span Mind
+                div#errorBddDIV.messageError
+                    p#errorBdd
+                fieldset
+                    div.inputAccessForm
+                        div.inputAccess
+                            label(for="userName") UserName
+                            input(type="text" placeholder="Your UserName")#userName
+
+                        div#userNameErrorDIV.messageError
+                            p#userNameError
+                    div.inputAccessForm
+                        div.inputAccess
+                            label(for="password") Password
+                            input(type="password" placeholder="Your Password")#password
+
+                        div#passwordErrorDIV.messageError
+                            p#passwordError
+                div.submit
+                    if(namePage=="Login")
+                        input(type="submit"  value="Login").btn.btn-blue
+                    if(namePage=="SignUp")
+                        input(type="submit" value="SignUp").btn.btn-blue
+                div.linkSection
+                    if(namePage=="Login")
+                        a(href="SignUp") Create Account
+                    if(namePage=="SignUp")
+                        a(href="Login") Go To Login 
+        
+        if(namePage == "Login")
+            script(src="../js/Login.js")
+        if(namePage == "SignUp")
+            script(src="../js/SignUp.js")

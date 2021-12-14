@@ -1,0 +1,31 @@
+.backAccess{
+    background-color: var(--colorBlue);
+}
+.btn{
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.btn-blue{
+    background-color: var(--colorBlue);
+    color: var(--colorWhite);
+}
+
+
+.messageError{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.messageError p{
+    color: var(--colorRed);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.errorBack{
+    background-color: var(--colorRedBack);
+}
