@@ -29,12 +29,14 @@ app.use(cors());
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/HackerMind",{});
 
+//Decoding json objects
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+//CookieParsers
 app.use(cookie());
 
-//Agregando sessiones
+//Adding express-session
 app.use(session({
     secret: "secret",
     resave: false,
@@ -42,6 +44,7 @@ app.use(session({
 
 }));
 
+//Using localStrategy with passportjs
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -53,7 +56,7 @@ app.use((req, res, next) => {
 
 
 
-
+//Router asignation
 app.use("/",router);
 
 

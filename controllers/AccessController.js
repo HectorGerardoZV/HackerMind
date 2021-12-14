@@ -11,7 +11,6 @@ exports.isAuthenticated = (req, res, next)=>{
       return res.redirect("/login");
   }
 }
-
 exports.signUp = async (req, res, next)=>{
   try {
         const user = new User(req.body);
@@ -29,12 +28,10 @@ exports.signUp = async (req, res, next)=>{
     res.json({message:"NO"});
   }
 }
-
 exports.login =passport.authenticate("local",{
   successRedirect:"/",
   failureRedirect:"/login",
 });
-
 
 exports.loginForm = (req,res,next)=>{
     res.render("Access",{
@@ -47,4 +44,9 @@ exports.signUpForm = (req,res,next)=>{
         namePage: "SignUp"
     });
     
+}
+exports.logout = (req, res)=>{
+  req.session.destroy(()=>{
+      res.redirect("/login");
+  })
 }
