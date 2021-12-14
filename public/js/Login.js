@@ -101,15 +101,14 @@ const sendUser = (user)=>{
     try {
         fetch("http://localhost:1000/login",data)
         .then(response=>{
-            return response.json();
-        }).then(data=>{
-           const {message} = data;
-           if(message==="YES"){
-            window.location.href= "/";
-            errorBDD("Invalid credentials");
-           }
-           
+            const {url}=response;
+            if(url==="http://localhost:1000/"){
+                window.location.href = url;
+            }else{
+                errorBDD("Invalid credentials");
+            }
         }).catch(error=>{
+            console.log(error);
             errorBDD("Error in the aplication");
         })
     } catch (error) {
