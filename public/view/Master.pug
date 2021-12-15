@@ -3,6 +3,26 @@ html(lang="en")
     head
         include helpers/Head
     body
-        header.header 
+        header.header
+            div.headerSection.container
+                div.logHeader
+                    a(href="/").logoSection 
+                        img(src="../img/Logo-White.svg", alt="Logo-IMG")
+                        h1
+                            | H
+                            span M
+                    p < #{user.userName} >;
+                
+                div.nevegationSection
+                    nav.navegation 
+                        a(href="") MyPosts 
+                        a(href="") Specials
+                        a(href="") Users
+                        a(href="") My Account
+                    
+                    a(href="/logOut")
+                        img(src="../img/LogOut.svg", alt="LogOut-IMG") 
+
+
 
         block content 

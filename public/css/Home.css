@@ -1,0 +1,88 @@
+.header{
+    background-color: var(--colorBlue);
+}
+.headerSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 0;
+}
+.logHeader{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.logHeader p{
+    color: var(--colorWhite);
+}
+.logoSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: .5rem;
+}
+.logoSection h1{
+    color: var(--colorWhite);
+}
+.logoSection span{
+    color: var(--colorYellow);
+}
+
+.nevegationSection{
+    display: flex;
+    align-items: flex-end;
+    gap: 3rem;
+}
+.navegation{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+.navegation a{
+    color: var(--colorWhite);
+    font-size: 2rem;
+    font-weight: lighter;
+    transition: .2s ease;
+}
+.navegation a:hover{
+    color: var(--colorYellow);
+    
+}
+
+/*________________________________________________*/
+/*HOME*/
+
+.titlesSection{
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    text-align: center;
+}
+
+.titlesSection h2:first-child{
+    text-align: start;
+}
+.topSection{
+    margin-top: 3rem;
+}
+.contentSection{
+    display: grid;
+    grid-template-columns: 2fr 3fr  2fr;
+}
+.specialsSection{
+    grid-column: 2/4;
+    display: flex;
+    gap: 3rem;
+    overflow-x:  auto;
+    height: 40rem;
+    margin-top: 4rem;
+}
+
+.usersList{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+

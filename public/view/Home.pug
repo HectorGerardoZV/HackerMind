@@ -1,4 +1,14 @@
 extends Master 
 block content
-    h1 This is the home page
-    h2=id
+    
+    div.topSection.container
+        section.titlesSection 
+            h2 Top 5 users 
+            h2 Specials 
+        section.contentSection 
+            section.usersSection
+                ul.usersList
+            section.specialsSection
+                
+    
+    script(src="../js/Home.js") 

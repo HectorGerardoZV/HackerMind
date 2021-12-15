@@ -1,0 +1,36 @@
+
+.principalContentTop{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.principalContentTop img:nth-child(1){
+    width: 6rem;
+}
+.principalContentTop img:nth-child(2){
+    width: 4rem;
+}
+.userItemTop{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--colorGray);
+    padding: 2rem 3rem 2rem 2rem;
+    border-radius: 1rem;
+    width: 30rem;
+    justify-content: space-between;
+    transition: .2s ease;
+    cursor: pointer;
+}
+.userItemTop:hover{
+    box-shadow: var(--shadow);
+}
+.userItemTop p{
+    font-size: 3rem;
+    color: var(--colorBlue);
+    font-weight: bold;
+}
+.userItemTop_info p{
+    color: var(--colorBlue);
+    font-size: 2rem;
+}

@@ -17,8 +17,18 @@ const UserSchema = new Schema({
         trim: true
     },
     userType:{
-        type: String
+        type: String,
+        trim: true
+    },
+    rank:{
+        type: String,
+        trim: true
+    },
+    image:{
+        type: String,
+        trim: true
     }
+
 });
 
 UserSchema.pre("save",function(next){
@@ -27,6 +37,8 @@ UserSchema.pre("save",function(next){
     user.aboutMe = "VOID";
     user.password = hash;
     user.userType= "Normal";
+    user.rank = "HacerNormalBlue.svg";
+    user.image = "userImage.svg";
     next();   
 });
 
