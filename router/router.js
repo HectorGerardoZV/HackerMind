@@ -4,6 +4,7 @@ const userController = require ("../controllers/UserController");
 const accessController = require ("../controllers/AccessController");
 const homeController = require ("../controllers/HomeController");
 const dashBoardController = require ("../controllers/DashBoardController");
+const postController = require("../controllers/PostController");
 
 //router
 const router = express.Router();
@@ -24,5 +25,7 @@ router.get("/",
     dashBoardController.dashBoard,
     homeController.home
     );
+
+router.post("/createPost",postController.createPost);
 //Export
 module.exports = router;

@@ -12,25 +12,35 @@ block content
         section.creatPostSection.posts_container 
             h2.txt-center Create Post
             div.separator-blue
-
-            form.createPostForm
+            div.createPostSuccessSection
+                p.createPostSuccessSectionTAG
+            form.createPostForm(id = user._id)
                 fieldset
                     div.createPostForm__TOP 
                         div.inputCreateForm
                             label(for="title") Title
-                            input(type="text" placeholder = "Title Post") 
+                            input(type="text" placeholder = "Title Post" id="title") 
+                            div#titleErrorArea
+                                p#titleError
+
+
                         div.inputCreateForm
                             label(for="category") Category
-                            select(name="")
+                            select(name="" id= "category")
                                 option(value="" selected disabled) SELECT 
-                                option(value="") AI   
-                                option(value="") SW   
-                                option(value="") GAME   
-                                option(value="") ALGO
+                                option(value="AI") AI   
+                                option(value="SW") SW   
+                                option(value="GAME") GAME   
+                                option(value="TI") TI
+                            div#categoryErrorArea
+                                p#categoryError
+
                     div.createPostForm__MID
                         div.inputCreateForm
-                            label(for="content")
-                            textarea(name="content")
+                            label(for="content") Content
+                            textarea(name="content" id= "content")
+                            div#contentErrorArea
+                                p#contentError
                     div.createPostForm__BOT
                         input(type="submit" value="CREATE")   
                        

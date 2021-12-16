@@ -4,9 +4,10 @@
 @import "../css/Tools.css";
 
 /*CSS components*/
-@import "../css/SpecialPost.css";
-@import "../css/NormalPost.css";
-@import "../css/TopUserCard.css";
+@import "../css/components/SpecialPost.css";
+@import "../css/components/NormalPost.css";
+@import "../css/components/TopUserCard.css";
+@import "../css/components/CreatePostForm.css";
 
 /*CSS pages*/
 @import "../css/Access.css";

@@ -29,6 +29,9 @@
 .errorBack{
     background-color: var(--colorRedBack);
 }
+.successBack{
+    background-color: var(--colorGreen);
+}
 
 .container{
     width: 90%;

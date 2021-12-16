@@ -1,0 +1,107 @@
+.createPostForm{
+    background-color: var(--colorGray);
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    margin-bottom: 5rem;
+}
+.createPostForm__TOP{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+.inputCreateForm{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.inputCreateForm input,select{
+    margin-top: 1rem;
+    border: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+.inputCreateForm select{
+    appearance: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("../../img//Select.svg");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+   
+}
+
+
+.inputCreateForm textarea{
+    margin-top: 1rem;
+    border: none;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    height: 25rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.inputCreateForm input,select, textarea{
+    border: 2px solid transparent;
+    color: var(--colorBlue);
+
+}
+
+.inputCreateForm input:focus{
+    outline: none;
+    border: 2px solid var(--colorYellow);
+}
+.inputCreateForm select:focus{
+    outline: none;
+    border: 2px solid var(--colorYellow);
+}
+.inputCreateForm textarea:focus{
+    outline: none;
+    border: 2px solid var(--colorYellow);
+}
+
+.createPostForm__BOT{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createPostForm__BOT input{
+   width: 60%;
+   border: none;
+   cursor: pointer;
+   padding: 2rem;
+   border-radius: 1rem;
+   background-color: var(--colorBlue);
+   font-size: 2rem;
+   color: var(--colorWhite);
+}
+
+
+#titleErrorArea,#categoryErrorArea,#contentErrorArea{
+    margin-top: 1rem;
+    height:3rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createPostSuccessSection{
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: var(--colorWhite);
+}
