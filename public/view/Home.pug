@@ -38,11 +38,21 @@ block content
                     div.createPostForm__MID
                         div.inputCreateForm
                             label(for="content") Content
-                            textarea(name="content" id= "content")
+                            textarea(name="content" id= "content" placeholder="Content")
                             div#contentErrorArea
                                 p#contentError
                     div.createPostForm__BOT
                         input(type="submit" value="CREATE")   
-                       
+            
+            
+            h2.txt-center Posts
+            div.separator-blue
+           
+            section.publicPostsSection.posts_container 
+                div.posts
+
+
+
+
     
     script(src="../js/Home.js") 

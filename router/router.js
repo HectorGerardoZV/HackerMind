@@ -19,6 +19,7 @@ router.post("/signUp",accessController.signUp);
 
 //Functions
 router.get("/top5Users",userController.top5Users);
+router.get("/findUser/:id",userController.findUser)
 
 router.get("/",
     accessController.isAuthenticated,
@@ -27,5 +28,6 @@ router.get("/",
     );
 
 router.post("/createPost",postController.createPost);
+router.get("/publicPosts",postController.publicPosts);
 //Export
 module.exports = router;

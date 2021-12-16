@@ -14,3 +14,11 @@ exports.createPost = async(req,res,next)=>{
         
     }
 }
+exports.publicPosts = async(req,res,next)=>{
+    try {
+        const posts= await Post.find();
+        res.json(posts);
+    } catch (error) {
+        next();        
+    }
+}

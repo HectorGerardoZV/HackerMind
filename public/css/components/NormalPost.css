@@ -1,0 +1,112 @@
+
+.normalPostCard{
+    padding: 2rem 3rem;
+    background-color: var(--colorGray);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.normalPostCard__TOP{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.normalPostCard__TOP-user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.normalPostCard__TOP-category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background-color: #F150FF;
+    border-radius: 10rem;
+    color: var(--colorWhite);
+}
+
+.normalPostCard__HEADER{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+}
+.normalPostCard__HEADER-title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: .5rem 1rem;
+    background-color: var(--colorWhite);
+    color: var(--colorBlue);
+    border-radius: 1rem;
+    width: 60%;
+    font-size: 2rem;
+}
+.normalPostCard__HEADER-date{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    font-size: 2rem;
+}
+.normalPostCard__CONTENT{
+    background-color: var(--colorWhite);
+    border-radius: 1rem;
+    height: 25rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+.normalPostCard__COMMENT{
+    margin-bottom: 2rem;
+    position: relative;
+    
+}
+.normalPostCard__COMMENT img{
+    cursor: pointer;
+   position: absolute;
+   top: 30%;
+   right: 3%;
+    
+}
+
+.normalPostCard__COMMENT input{
+    border:none;
+    width: 100%;
+    padding: 2rem 7rem 2rem 1rem;
+    background-color: var(--colorWhite);
+    color: var(--colorBlue);
+    border-radius: 1rem;
+    outline: none;
+    font-size: 2rem;
+
+}
+
+.normalPostCard__COMMENTS-button{
+    display: flex;
+    justify-content: flex-end;
+}
+.normalPostCard__COMMENTS-button button{
+    border: none;
+    cursor: pointer;
+    background-color: var(--colorBlue);
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--colorWhite);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+.normalPostCard__imageUser{
+    width: 6rem;
+}
+.normalPostCard__rankUser{
+    width: 4rem;
+}

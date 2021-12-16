@@ -58,7 +58,9 @@
     grid-template-columns: 2fr 3fr 2fr;
     text-align: center;
 }
-
+.titlesSection{
+    color: var(--colorBlue);
+}
 .titlesSection h2:first-child{
     text-align: start;
 }
@@ -95,3 +97,14 @@
     margin-top: 4rem;
 }
 
+.publicPostsSection{
+    margin-top: 10rem;
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10rem;
+    margin-bottom: 10rem;
+}

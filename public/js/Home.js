@@ -23,7 +23,7 @@ const insertUsers = users=>{
         userItem.id = user._id;
         userItem.innerHTML = `
             <div class="principalContentTop">
-                <img src = "../img/${user.image}">
+                <img src = "../userIMG/${user.image}">
                 <div class = "userItemTop_info">
                     <p>${user.userName}</p>
                     <img src = "../img/${user.rank}">
@@ -42,7 +42,7 @@ const insertSpecialPosts = number =>{
         itemPost.classList.add("specialPost");
          itemPost.innerHTML = `
          <div class="specialPost__header">
-            <img src="../img/userImage.svg">
+            <img src="../userIMG/userImage.svg">
             <p>Piter adam</p>
             <img src="../img/HackerSpecial.svg">   
          </div>
@@ -127,7 +127,6 @@ const sendPost = (e)=>{
         showErrorsForm();
     }
 }
-
 const validateInputs = (e)=>{
     e.preventDefault();
     clearErrorForm();
@@ -158,7 +157,6 @@ const validateInputs = (e)=>{
     
     return post;
 }
-
 const clearErrorForm = ()=>{
     const titleSection = document.querySelector("#titleErrorArea");
     const categorySection = document.querySelector("#categoryErrorArea");
@@ -186,7 +184,6 @@ const clearErrorForm = ()=>{
     }
 
 }
-
 const showErrorsForm = ()=>{
     const titleInput = document.querySelector("#title");
     const categorySelect = document.querySelector("#category");
@@ -250,7 +247,6 @@ const showErrorsForm = ()=>{
     
     }
 }
-
 const showSuccess = ()=>{
     const successArea = document.querySelector(".createPostSuccessSection");
     const successMessage = document.querySelector(".createPostSuccessSectionTAG");
@@ -271,9 +267,101 @@ const showSuccess = ()=>{
         successMessage.textContent = "";
     }, 3000);
 }
+
+class Posts {
+    constructor(){
+        this.postsList = document.querySelector(".posts");
+        this.loadPosts();
+    }
+    loadPosts(){
+        try {
+            fetch("http://localhost:1000/publicPosts")
+            .then(response=>{
+                return response.json();
+            }).then(posts=>{
+                this.buildPosts(posts);
+            }).catch(error=>{
+                console.log(error);
+            })
+        } catch (error) {
+            
+        }
+    }
+    buildPosts(posts){
+        posts.forEach(post=>{
+            this.buildPost(post);
+        })
+    }
+    buildPost(post){
+        try {
+            fetch(`http://localhost:1000/findUser/${post.idUser}`)
+            .then(response=>{
+                return response.json();
+            }).then(user=>{
+                this.insertPost(post,user);
+            }).catch(error=>{
+                console.log(error);
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    insertPost(post,user){
+        
+        const postHTML = document.createElement("DIV");
+        postHTML.classList.add("normalPostCard");
+        postHTML.innerHTML =`
+        <div class="normalPostCard__TOP">
+            <div class="normalPostCard__TOP-user">
+                <img class="normalPostCard__imageUser" src="../userIMG/${user.image}">
+                <p>${user.userName}</p>
+                <img class="normalPostCard__rankUser" src="../img/${user.rank}">
+            </div>
+
+            <div class="normalPostCard__TOP-category">
+                <h3>${post.idCategory}</h3>
+            </div>
+        </div>
+
+        <div class="normalPostCard__HEADER">
+            <div class="normalPostCard__HEADER-title">
+                <p>${post.title}</p>
+            </div>
+            <div class="normalPostCard__HEADER-date">
+                <img src="../img/DateBlue.svg">
+                <p>${post.date}</p>
+            </div>
+            
+        </div>
+
+        <div class="normalPostCard__CONTENT">
+            <p>${post.content}</p>
+        </div>
+
+        <div class="normalPostCard__COMMENT">
+            <input type="text" id= "comment" placeholder= "Add Comment">
+            <img src="../img/Send.svg">
+        </div>
+        <div class="normalPostCard__COMMENTS-button">
+            <button>
+            View Comments
+            <img src="../img/Close.svg">
+            </button>
+        </div>
+        
+        `;
+        this.postsList.appendChild(postHTML);
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded",()=>{
     loadTop5Users();
     loadSpecialPosts();
     specilasScroll();
     createPost();
+
+    const posts = new Posts();
+
+
 });
