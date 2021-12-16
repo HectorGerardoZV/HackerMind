@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
     loadTop5Users();
     loadSpecialPosts();
+    specilasScroll();
 });
 const loadTop5Users = ()=>{
     try {
@@ -71,4 +72,32 @@ const insertSpecialPosts = number =>{
     specialsSection.appendChild(itemPost);
         
     }
+}
+const specilasScroll = ()=>{
+    let section = document.querySelector(".specialsSection");
+    let isDawn = false;
+    let startX;
+    let scrollLeft; 
+    section.addEventListener("mousedown",e=>{
+        isDawn = true;
+        section.classList.add("active");
+        startX = e.pageX;
+        scrollLeft = section.scrollLeft;
+        
+    })
+    section.addEventListener("mouseleave",()=>{
+        isDawn = false;
+        section.classList.remove("active");
+    })
+    section.addEventListener("mouseup",()=>{
+        isDawn = false;
+        section.classList.remove("active");
+    })
+    section.addEventListener("mousemove",e=>{
+        if(!isDawn) return;
+        e.preventDefault();
+        const x = e.pageX;
+        const walk = (x - startX)*2;
+        section.scrollLeft = scrollLeft - walk;
+    })
 }

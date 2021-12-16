@@ -77,6 +77,12 @@
     height: 40rem;
     margin-top: 4rem;
 }
+.specialsSection:hover{
+    cursor: grab;
+}
+.specialsSection::-webkit-scrollbar{
+    width: 0;
+}
 
 .usersList{
     margin-top: 4rem;
