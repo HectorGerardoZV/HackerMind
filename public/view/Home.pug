@@ -9,6 +9,30 @@ block content
             section.usersSection
                 ul.usersList
             section.specialsSection
-                            
+        section.creatPostSection.posts_container 
+            h2.txt-center Create Post
+            div.separator-blue
+
+            form.createPostForm
+                fieldset
+                    div.createPostForm__TOP 
+                        div.inputCreateForm
+                            label(for="title") Title
+                            input(type="text" placeholder = "Title Post") 
+                        div.inputCreateForm
+                            label(for="category") Category
+                            select(name="")
+                                option(value="" selected disabled) SELECT 
+                                option(value="") AI   
+                                option(value="") SW   
+                                option(value="") GAME   
+                                option(value="") ALGO
+                    div.createPostForm__MID
+                        div.inputCreateForm
+                            label(for="content")
+                            textarea(name="content")
+                    div.createPostForm__BOT
+                        input(type="submit" value="CREATE")   
+                       
     
     script(src="../js/Home.js") 

@@ -83,7 +83,6 @@
 .specialsSection::-webkit-scrollbar{
     width: 0;
 }
-
 .usersList{
     margin-top: 4rem;
     display: flex;
@@ -91,4 +90,8 @@
     gap: 1rem;
 }
 
+
+.creatPostSection{
+    margin-top: 4rem;
+}
 
