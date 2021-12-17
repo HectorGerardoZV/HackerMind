@@ -1,0 +1,30 @@
+extends Master 
+block content 
+    div.special_container.myPostsPage
+    
+        h2.txt-center My Posts
+
+        div.filterSection
+            div.inputfilter
+                input(type="text" placeholder = "Post Title")
+            div.inputfilter
+                select(name="")
+                    option(value="" selected disabled) Category 
+                    option(value="AI") AI   
+                    option(value="SW") SW   
+                    option(value="GAME") GAME   
+                    option(value="TI") TI  
+
+            div.inputfilter
+                input(type="date")
+
+        div.separator-blue-big
+                
+
+        
+        div.myPostsSection
+
+
+
+
+    script(src="../js/MyPosts.js") 

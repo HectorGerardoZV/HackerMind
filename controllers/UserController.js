@@ -1,5 +1,6 @@
 const User = require("../models/User");
 
+
 exports.top5Users = async (req,res,next)=>{
     try {
         const top5Users = await User.find();
@@ -18,5 +19,15 @@ exports.findUser = async (req,res,next)=>{
         next();
     } catch (error) {
         next();
+    }
+}
+
+exports.getCurrentUser =  async (req,res,next)=>{
+    try {
+        const id = res.locals.user._id;
+        const user = await User.findById(id);
+        res.json(user);
+    } catch (error) {
+        console.log(error);
     }
 }

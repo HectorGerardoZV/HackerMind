@@ -68,10 +68,10 @@
 }
 .normalPostCard__COMMENT img{
     cursor: pointer;
-   position: absolute;
-   top: 30%;
-   right: 3%;
-    
+    position: absolute;
+    top: 30%;
+    right: 3%;
+
 }
 
 .normalPostCard__COMMENT input{
@@ -87,14 +87,14 @@
 }
 
 .normalPostCard__COMMENTS-button{
-    display: flex;
-    justify-content: flex-end;
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
 }
 .normalPostCard__COMMENTS-button button{
     border: none;
     cursor: pointer;
     background-color: var(--colorBlue);
-    width: 40%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

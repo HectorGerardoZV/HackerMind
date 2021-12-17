@@ -16,9 +16,22 @@ exports.createPost = async(req,res,next)=>{
 }
 exports.publicPosts = async(req,res,next)=>{
     try {
-        const posts= await Post.find();
+        let posts= await Post.find();
+        posts = posts.reverse();
         res.json(posts);
     } catch (error) {
         next();        
+    }
+}
+
+exports.findPostsById = async(req,res,next)=>{
+    try {
+        const {id} = req.params;
+        let posts = await Post.find({idUser:id});
+        posts = posts.reverse();
+        res.json(posts);
+        next();
+    } catch (error) {
+        next();
     }
 }

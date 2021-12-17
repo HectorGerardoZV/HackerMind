@@ -1,0 +1,78 @@
+.myPostsPage{
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+.filterSection{
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+
+.myPostsSection{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5rem;
+}
+
+
+.optionsPost{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.optionsPost img{
+    width: 2rem;
+}
+
+.editPost{
+    cursor: pointer;
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--colorEdit);
+}
+.deletePost{
+    cursor: pointer;
+    width: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--colorDelete);
+}
+
+.inputfilter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inputfilter input{
+    width: 90%;
+    padding: 2rem 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--colorGray);
+    font-size: 2rem;
+}
+
+.inputfilter select{
+    margin: 0;
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+    background-color: var(--colorGray);
+
+    
+}

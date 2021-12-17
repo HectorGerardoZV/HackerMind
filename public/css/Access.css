@@ -44,6 +44,7 @@
     font-size: 2rem;
     color: var(--colorBlue);
     font-weight: bold;
+    margin-bottom: .5rem;
 }
 .inputAccessForm input{
     border: none;

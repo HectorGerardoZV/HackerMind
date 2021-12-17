@@ -267,7 +267,6 @@ const showSuccess = ()=>{
         successMessage.textContent = "";
     }, 3000);
 }
-
 class Posts {
     constructor(){
         this.postsList = document.querySelector(".posts");
@@ -343,9 +342,11 @@ class Posts {
             <img src="../img/Send.svg">
         </div>
         <div class="normalPostCard__COMMENTS-button">
+            <div class="optionsPost">
+            </div>
             <button>
-            View Comments
-            <img src="../img/Close.svg">
+                View Comments
+                <img src="../img/Close.svg">
             </button>
         </div>
         

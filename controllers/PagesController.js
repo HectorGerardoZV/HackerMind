@@ -11,3 +11,13 @@ exports.home = async (req,res,next)=>{
         console.log(error);
     }
 }
+
+exports.myPosts = async (req,res,next)=>{
+    try {
+        res.render("MyPosts",{
+            namePage : "MyPosts"
+        });
+    } catch (error) {
+        
+    }
+}
