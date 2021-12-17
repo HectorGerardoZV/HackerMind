@@ -47,10 +47,14 @@
     font-size: 2rem;
     margin-bottom: 2rem;
 }
-.inputCreateForm input,select, textarea{
+.inputCreateForm input,select{
     border: 2px solid transparent;
     color: var(--colorBlue);
 
+}
+.inputCreateForm textarea{
+    border: 2px solid transparent;
+    color: var(--colorBlue);
 }
 
 .inputCreateForm input:focus{

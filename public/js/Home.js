@@ -101,7 +101,6 @@ const createPost = ()=>{
 
     form.addEventListener("submit",e=>{
         const post  = sendPost(e);
-        console.log(post);
     });
 }
 const sendPost = (e)=>{
@@ -143,7 +142,7 @@ const validateInputs = (e)=>{
     let post = null;
     if((title!="" && title.length<=35)&&(category!="")&&(content!="" && content.length<=230)){
         const dateOBJ = new Date();
-        const date = dateOBJ.getDate()+"/"+(dateOBJ.getMonth()+1)+"/"+dateOBJ.getFullYear();
+        const date = dateOBJ.getFullYear()+"-"+(dateOBJ.getMonth()+1)+"-"+dateOBJ.getDate();
         const idUser = e.target.id;
         post = {
             title, 
@@ -306,7 +305,15 @@ class Posts {
         }
     }
     insertPost(post,user){
-        
+
+        let date = post.date;
+        let datePoints = date.split("-");
+        let start =datePoints[0];
+        let end =datePoints[2];
+        datePoints[0] = end;
+        datePoints[2] = start;
+
+        date = datePoints[0]+"/"+datePoints[1]+"/"+datePoints[2];
         const postHTML = document.createElement("DIV");
         postHTML.classList.add("normalPostCard");
         postHTML.innerHTML =`
@@ -328,7 +335,7 @@ class Posts {
             </div>
             <div class="normalPostCard__HEADER-date">
                 <img src="../img/DateBlue.svg">
-                <p>${post.date}</p>
+                <p>${date}</p>
             </div>
             
         </div>
