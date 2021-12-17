@@ -118,6 +118,8 @@ const sendPost = (e)=>{
             const {message} = object;
             if(message=="YES"){
                 showSuccess();
+                const posts = new Posts();
+                posts.buildPost(post);
             }
         }).catch(error=>{
             console.log(error);
@@ -266,10 +268,11 @@ const showSuccess = ()=>{
         successMessage.textContent = "";
     }, 3000);
 }
+
+
 class Posts {
     constructor(){
         this.postsList = document.querySelector(".posts");
-        this.loadPosts();
     }
     loadPosts(){
         try {
@@ -277,7 +280,7 @@ class Posts {
             .then(response=>{
                 return response.json();
             }).then(posts=>{
-                this.buildPosts(posts);
+                this.buildPostsFor(posts);
             }).catch(error=>{
                 console.log(error);
             })
@@ -285,9 +288,10 @@ class Posts {
             
         }
     }
-    buildPosts(posts){
+
+    buildPostsFor(posts){
         posts.forEach(post=>{
-            this.buildPost(post);
+            this.buildPosts(post);
         })
     }
     buildPost(post){
@@ -304,8 +308,21 @@ class Posts {
             console.log(error);
         }
     }
-    insertPost(post,user){
-
+    buildPosts(post){
+        try {
+            fetch(`http://localhost:1000/findUser/${post.idUser}`)
+            .then(response=>{
+                return response.json();
+            }).then(user=>{
+                this.insertPosts(post,user);
+            }).catch(error=>{
+                console.log(error);
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    insertPosts(post,user){
         let date = post.date;
         let datePoints = date.split("-");
         let start =datePoints[0];
@@ -360,6 +377,63 @@ class Posts {
         `;
         this.postsList.appendChild(postHTML);
     }
+    insertPost(post,user){
+        let date = post.date;
+        let datePoints = date.split("-");
+        let start =datePoints[0];
+        let end =datePoints[2];
+        datePoints[0] = end;
+        datePoints[2] = start;
+
+        date = datePoints[0]+"/"+datePoints[1]+"/"+datePoints[2];
+        const postHTML = document.createElement("DIV");
+        postHTML.classList.add("normalPostCard");
+        postHTML.innerHTML =`
+        <div class="normalPostCard__TOP">
+            <div class="normalPostCard__TOP-user">
+                <img class="normalPostCard__imageUser" src="../userIMG/${user.image}">
+                <p>${user.userName}</p>
+                <img class="normalPostCard__rankUser" src="../img/${user.rank}">
+            </div>
+
+            <div class="normalPostCard__TOP-category">
+                <h3>${post.idCategory}</h3>
+            </div>
+        </div>
+
+        <div class="normalPostCard__HEADER">
+            <div class="normalPostCard__HEADER-title">
+                <p>${post.title}</p>
+            </div>
+            <div class="normalPostCard__HEADER-date">
+                <img src="../img/DateBlue.svg">
+                <p>${date}</p>
+            </div>
+            
+        </div>
+
+        <div class="normalPostCard__CONTENT">
+            <p>${post.content}</p>
+        </div>
+
+        <div class="normalPostCard__COMMENT">
+            <input type="text" id= "comment" placeholder= "Add Comment">
+            <img src="../img/Send.svg">
+        </div>
+        <div class="normalPostCard__COMMENTS-button">
+            <div class="optionsPost">
+            </div>
+            <button>
+                View Comments
+                <img src="../img/Close.svg">
+            </button>
+        </div>
+        
+        `;
+        this.postsList.insertBefore(postHTML, this.postsList.firstChild)
+    }
+
+
 }
 
 
@@ -370,6 +444,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     createPost();
 
     const posts = new Posts();
+    posts.loadPosts();
 
 
 });

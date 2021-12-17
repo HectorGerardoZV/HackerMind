@@ -1,6 +1,3 @@
-//Variables
-
-
 class MyPosts {
 
     constructor (){
@@ -16,7 +13,6 @@ class MyPosts {
         this.loadUser()
         this.loadFilter()
     }
-
 
     loadUser = ()=>{
         try {
@@ -151,6 +147,7 @@ class MyPosts {
         });
         
     }
+
     filterPosts = (data)=>{
         let {title,category,date} = data;
         this.postsListFilter = this.postsList.
@@ -189,11 +186,6 @@ class MyPosts {
     }
 
 }
-
-
-
-
-
 document.addEventListener("DOMContentLoaded",()=>{
     const myPosts = new MyPosts();
 });
