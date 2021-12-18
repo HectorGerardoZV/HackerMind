@@ -1,14 +1,14 @@
-
 class Question {
-    constructor(action,post){
+    constructor(action,post,url){
        this.body = document.querySelector("body");
        this.action = action;
        this.post = post;
-
+        this.url = url;
        this.editable = "";
        this.disabled = "";
        this.openOverlay();
-       this.destroyForm();
+       this.destroyFormClick();
+       this.actionEvent();
     }
     openOverlay = ()=>{
         const overlay = document.createElement("DIV");
@@ -19,7 +19,6 @@ class Question {
 
         
     }
-
     buildForm = ()=>{
         if(this.action==="Delete"){
             this.editable = "readonly";
@@ -52,7 +51,7 @@ class Question {
         </div>
 
         <div class = "overlayOptions">
-            <button class = "${this.action}Button">
+            <button id= "actionButton" class = "${this.action}Button">
             ${this.action}
             <img src="../../img/${this.action}.svg">
             </button>
@@ -75,11 +74,9 @@ class Question {
             if(option.value ===this.post.idCategory){
                 option.selected= "selected";
             }
-            console.log(option);
         })
     }
-
-    destroyForm = ()=>{
+    destroyFormClick = ()=>{
         const cancel = document.querySelector(".CancelButton");
         cancel.addEventListener("click",()=>{
             const overlay = document.querySelector(".overlay");
@@ -89,5 +86,150 @@ class Question {
         });
        
     }
+    destroyFormReq = ()=>{
+        //Load the new posts
+        const myPosts = new MyPosts();
 
+        const overlay = document.querySelector(".overlay");
+        overlay.classList.remove("overlay");
+        this.body.removeChild(overlay)
+        this.body.classList.remove("hidden-body");
+    }
+    waitResponseForm = ()=>{
+        const overlay = document.querySelector(".overlay");
+        overlay.innerHTML = ``;
+    }
+    actionEvent = ()=>{
+        const actionButton =document.querySelector("#actionButton"); 
+        let decision = "";
+        actionButton.addEventListener("click",()=>{
+           if(this.action === "Delete"){
+            decision = "deletePost";
+            const urlReq = this.url+"/"+decision+`/${this.post._id}`;
+
+            try {
+                fetch(urlReq)
+                .then(response=>{
+                    return response.json();
+                }).then(res=>{
+                    const {message} = res;
+                    if(message==="YES"){
+                     
+                     this.waitResponseForm();
+                     this.messageAction(this.action,"Good");
+                    }else{
+                     this.waitResponseForm();
+                     this.messageAction(this.action,"Bad");
+                    }
+                   
+                }).catch(error=>{
+                 this.waitResponseForm();
+                 this.messageAction(this.action,"error");
+                })
+               
+            } catch (error) {
+             this.waitResponseForm();
+             this.messageAction(this.action,"error");
+            }
+
+
+           }else{
+            decision = "editPost";
+            const title = document.querySelector("#titleOverlay").value;
+            const category = document.querySelector("#categoryOverlay").value;
+            const content = document.querySelector("#contentOverlay").value;
+            this.post.title = title;
+            this.post.idCategory = category;
+            this.post.content = content;
+            const urlReq = this.url+"/"+decision;
+            const data ={
+                headers: {'Content-type': 'application/json'},
+                method: 'POST',
+                body: JSON.stringify(this.post)
+            }
+
+            try {
+                fetch(urlReq,data)
+                .then(response=>{
+                    return response.json();
+                }).then(res=>{
+                    const {message} = res;
+                    if(message==="YES"){
+                     
+                     this.waitResponseForm();
+                     this.messageAction(this.action,"Good");
+                    }else{
+                     this.waitResponseForm();
+                     this.messageAction(this.action,"Bad");
+                    }
+                   
+                }).catch(error=>{
+                 this.waitResponseForm();
+                 this.messageAction(this.action,"error");
+                })
+               
+            } catch (error) {
+             this.waitResponseForm();
+             this.messageAction(this.action,"error");
+            }
+
+
+           }
+           
+           
+
+        });
+        
+    }
+    messageAction = (action,state)=>{
+
+        let img = "";
+        let message = "";
+        if(action==="Delete"){
+            message = "The post was deleted";
+        }else{
+            message = "The post was edited";
+        }
+
+        if(state==="Good"){
+            img= "Success";
+        }else{
+            img= "Error";
+            if(action==="Delete"){
+                message = "Error: Post could not be deleted";
+            }else{
+                message = "Error: Post could not be edited";
+            }
+        }
+
+        if(state==="error"){
+            img= "Error";
+            message = "Error: The operation could not be performed";
+        }
+
+
+        const overlay = document.querySelector(".overlay");
+        const form  = document.createElement("DIV");
+        form.classList.add("overlayForm");
+        form.innerHTML = `
+        <div class="overlayAction">
+            <div class = "overlayImage">
+                <img src="../../img/${img}.svg">
+            </div>
+            
+            <p>${message}</p>
+
+            <button class = "buttonOK"> OK </button>
+        </div>
+        
+        `;
+       
+        overlay.appendChild(form);
+        this.destoyMessageAction();
+    }
+    destoyMessageAction = ()=>{
+        const button = document.querySelector(".buttonOK");
+        button.addEventListener("click",this.destroyFormReq);
+        
+    }
 }

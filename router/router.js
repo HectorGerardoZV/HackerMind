@@ -32,15 +32,17 @@ router.get("/myPosts",
 
 //User Routes
 router.get("/top5Users",userController.top5Users);
-router.get("/findUser/:id",userController.findUser)
+router.get("/findUser/:id",userController.findUser);
 router.get("/myUser",userController.getCurrentUser);
 
 
 //Post Routes
 router.post("/createPost",postController.createPost);
 router.get("/publicPosts",postController.publicPosts);
-router.get("/myPosts/:id",postController.findPostsByUser)
-router.get("/findPost/:id",postController.findPostsById)
+router.get("/myPosts/:id",postController.findPostsByUser);
+router.get("/findPost/:id",postController.findPostsById);
+router.get("/deletePost/:id",postController.deletePost);
+router.post("/editPost",postController.editPost);
 
 
 //Export

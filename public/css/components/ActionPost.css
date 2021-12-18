@@ -100,3 +100,38 @@
 .CancelButton{
     background-color: var(--colorBlue);
 }
+
+.overlayAction{
+    text-align: center;
+    font-size: 2rem;
+    color: var(--colorBlue);
+}
+
+
+
+.overlayImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+.overlayImage img{
+    width: 17rem;
+}
+
+.overlayAction p{
+    margin-bottom: 5rem;
+    font-size: 3rem;
+}
+
+.overlayAction button{
+    width: 70%;
+    padding: 2rem;
+    font-size: 2rem;
+    color: var(--colorWhite);
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    margin-bottom: 3rrem;
+    background-color: var(--colorBlue);
+}

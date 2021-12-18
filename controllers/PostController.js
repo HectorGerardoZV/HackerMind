@@ -46,3 +46,35 @@ exports.findPostsById = async(req,res,next)=>{
         next();
     }
 }
+exports.deletePost = async(req,res,next)=>{
+    try {
+        const {id} = req.params;
+        let post = await Post.findOneAndDelete({_id: id});
+        if(post){
+            res.json({message: "YES"});
+        }else{
+            res.json({message: "NO"});
+        }
+        next();
+    } catch (error) {
+        res.json({message: "NO"});
+    }
+}
+exports.editPost = async(req,res,next)=>{
+    try {
+        const post = req.body;
+        let postNew = await Post.findOneAndUpdate({_id: post._id},{
+            title: post.title,
+            idCategory: post.idCategory,
+            content: post.content
+        },{new: true});
+        if(postNew){
+            res.json({message: "YES"});
+        }else{
+            res.json({message: "NO"});
+        }
+        next();
+    } catch (error) {
+        res.json({message: "NO"});
+    }
+}

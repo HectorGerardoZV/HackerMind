@@ -10,8 +10,8 @@ class MyPosts {
         this.postsListFilter = [];
         this.user={};
 
-        this.loadUser()
-        this.loadFilter()
+        this.loadUser();
+        this.loadFilter();
     }
 
     loadUser = ()=>{
@@ -228,7 +228,7 @@ class ActionPost {
                    .then(response=>{
                        return response.json();
                    }).then(post=>{
-                    const question = new Question(action,post);
+                    const question = new Question(action,post,this.url);
                    }) 
                 } catch (error) {
                     console.log(error);
