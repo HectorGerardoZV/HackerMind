@@ -186,6 +186,61 @@ class MyPosts {
     }
 
 }
+
+class ActionPost {
+    constructor(){
+        this.url = "http://localhost:1000";
+        this.postsSection = document.querySelector(".myPostsSection");
+        this.clickAction();
+    }
+    clickAction = ()=>{
+        this.postsSection.addEventListener("click",this.doAction);
+    }
+    doAction = (e)=>{
+        let option = e.target;
+        let id = "";
+        let action = "";
+        if(option.tagName==="IMG" || option.classList.contains("editPost")||option.classList.contains("deletePost")){
+            if(option.tagName==="IMG"){
+                if(option.src === this.url+"/img/Delete.svg" || option.src === this.url+"/img/Edit.svg"){
+                    if(option.src === this.url+"/img/Delete.svg"){
+                        action = "Delete";
+                    }else{
+                        action = "Edit";
+                    }
+
+
+                   option = option.parentElement;
+                }
+            }
+
+            id = option.id;
+            if(action===""){
+                if(option.classList.contains("editPost")){
+                    action = "Edit";
+                }else{
+                    action = "Delete";
+                }
+            }
+            if(id!==""){
+                try {
+                   fetch(this.url+`/findPost/${id}`)
+                   .then(response=>{
+                       return response.json();
+                   }).then(post=>{
+                    const question = new Question(action,post);
+                   }) 
+                } catch (error) {
+                    console.log(error);
+                }
+               
+            }
+
+        }
+    }
+}
+
 document.addEventListener("DOMContentLoaded",()=>{
     const myPosts = new MyPosts();
+    const actionPost = new ActionPost();
 });

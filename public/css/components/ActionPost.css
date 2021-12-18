@@ -1,0 +1,102 @@
+.overlayForm{
+    width: 70rem;
+    padding: 3rem 4rem;
+    background-color: var(--colorGray);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.overlayInput__top{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.overlayInput{
+    display: flex;
+    flex-direction: column;
+    gap: 1re;
+
+}
+.overlayInput label{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--colorBlue);
+
+}
+.overlayInput input{
+    width: 100%;
+    border: none;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    border: 3px solid transparent;
+    outline: none;
+    font-size: 2rem;
+    color: var(--colorBlue);
+}
+
+.overlayInput select{
+    appearance: none;
+    margin: 0;
+    cursor: pointer;
+}
+.overlayInput input:focus{
+    border: 3px solid var(--colorBlue);
+}
+
+.overlayInput__mid label{
+    font-size: 2rem;
+    color: var(--colorBlue);
+}
+
+.overlayInput__mid textarea{
+    margin-top: 1rem;
+    width: 100%;
+    border: none;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    border: 3px solid transparent;
+    outline: none;
+    font-size: 2rem;
+    color: var(--colorBlue);
+    height: 30rem;
+    resize: none;
+}
+.overlayInput__mid textarea:focus{
+    border: 3px solid var(--colorBlue);
+}
+
+
+.overlayOptions{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+.overlayOptions button{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30rem;
+    border: none;
+    cursor: pointer;
+    padding: 2rem 0rem;
+    align-items: center ;
+    font-size: 2rem;
+    border-radius: 1rem;
+    color: var(--colorWhite);
+    font-weight: bold;
+}
+.overlayOptions button img{
+    width: 3rem;
+}
+.DeleteButton{
+    background-color: var(--colorDelete);
+}
+.EditButton{
+    background-color: var(--colorEdit);
+}
+.CancelButton{
+    background-color: var(--colorBlue);
+}

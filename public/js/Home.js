@@ -269,7 +269,6 @@ const showSuccess = ()=>{
     }, 3000);
 }
 
-
 class Posts {
     constructor(){
         this.postsList = document.querySelector(".posts");
@@ -288,7 +287,6 @@ class Posts {
             
         }
     }
-
     buildPostsFor(posts){
         posts.forEach(post=>{
             this.buildPosts(post);
@@ -432,10 +430,7 @@ class Posts {
         `;
         this.postsList.insertBefore(postHTML, this.postsList.firstChild)
     }
-
-
 }
-
 
 document.addEventListener("DOMContentLoaded",()=>{
     loadTop5Users();

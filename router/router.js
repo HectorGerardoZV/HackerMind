@@ -39,7 +39,8 @@ router.get("/myUser",userController.getCurrentUser);
 //Post Routes
 router.post("/createPost",postController.createPost);
 router.get("/publicPosts",postController.publicPosts);
-router.get("/myPosts/:id",postController.findPostsById)
+router.get("/myPosts/:id",postController.findPostsByUser)
+router.get("/findPost/:id",postController.findPostsById)
 
 
 //Export
