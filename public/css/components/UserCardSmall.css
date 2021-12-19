@@ -1,0 +1,40 @@
+.userCardSmall{
+    background-color: var(--colorGray);
+    border-radius: 1rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .2s ease;
+    gap: 3rem;
+}
+.userCardSmall:hover{
+    box-shadow: var(--shadow);
+}
+
+.userCardSmall__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+}
+.userCardSmall__info img:nth-child(1){
+    width: 10rem;
+    margin-bottom: 1rem;
+}
+.userCardSmall button{
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: var(--colorBlue);
+    padding: 2rem;
+    border-radius: 1rem;
+    color: var(--colorWhite);
+    font-size: 2rem;
+    transition: .2s ease;
+}
+.userCardSmall button:hover{
+    background-color: var(--colorYellow);
+}

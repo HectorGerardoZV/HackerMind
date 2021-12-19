@@ -1,0 +1,51 @@
+.userProfilePage{
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.userCardBig{
+    background-color: var(--colorGray);
+    border-radius: 1rem;
+    padding: 3rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.userCardBig img:nth-child(1){
+    width: 13rem;
+}
+.userCardBig img:nth-child(3){
+    width: 7rem;
+}
+.userCardBig p{
+    
+    color: var(--colorBlue);
+    font-size: 2rem;
+}
+.userCardBig textarea{
+    width: 100%;
+    border: none;
+    cursor: auto;
+    resize: none;
+    height: 25rem;
+    border-radius: 1rem;
+    background-color: var(--colorBlue);
+    color: var(--colorWhite);
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+.postsUser{
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5rem;
+}

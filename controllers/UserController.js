@@ -11,6 +11,16 @@ exports.top5Users = async (req,res,next)=>{
     }
 }
 
+exports.allUsers = async (req,res,next)=>{
+    try {
+        const users = await User.find({userType: "Normal"});
+        res.json(users);
+    } catch (error) {
+        next();
+    }
+}
+
+
 exports.findUser = async (req,res,next)=>{
     try {
         const {id} = req.params;

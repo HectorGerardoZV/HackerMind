@@ -1,3 +1,19 @@
 extends Master 
 block content 
-    h1 This is the UserProfile page
+    section.special_container.userProfilePage
+        h1.txt-center #{userProfile.userName} Profile
+
+        div.userCardBig(id= `${userProfile._id}`)
+            img(src=`../userIMG/${userProfile.image}`, alt="")
+            p=userProfile.userName
+            img(src=`../img/${userProfile.rank}`, alt="")
+            textarea(readonly)=userProfile.aboutMe 
+    
+        h2.txt-center #{userProfile.userName} Posts
+        div.separator-blue-big
+
+        div.postsUser
+
+    
+    script(src="../js/UserProfile.js") 
+

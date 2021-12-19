@@ -39,6 +39,18 @@ exports.users = async (req,res,next)=>{
         
     }
 }
+exports.viewProfile = async (req,res,next)=>{
+    try {
+        const {id} = req.params;
+        const userProfile = await User.findOne({_id:id});
+        res.render("UserProfile",{
+            namePage : "userProfile",
+            userProfile
+        });
+    } catch (error) {
+        
+    }
+}
 exports.myAccount = async (req,res,next)=>{
     try {
         res.render("MyAccount",{

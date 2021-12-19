@@ -1,0 +1,9 @@
+.usersPage{
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+.usersSection{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5rem;
+}

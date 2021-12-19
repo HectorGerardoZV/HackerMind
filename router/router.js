@@ -37,6 +37,10 @@ router.get("/users",
     accessController.isAuthenticated,
     pagesController.users
     );
+router.get("/viewProfile/:id",
+    accessController.isAuthenticated,
+    pagesController.viewProfile
+    );
 router.get("/myAccount",
     accessController.isAuthenticated,
     pagesController.myAccount
@@ -46,6 +50,7 @@ router.get("/myAccount",
 router.get("/top5Users",userController.top5Users);
 router.get("/findUser/:id",userController.findUser);
 router.get("/myUser",userController.getCurrentUser);
+router.get("/allUsers",userController.allUsers);
 
 
 //Post Routes
