@@ -29,6 +29,18 @@ router.get("/myPosts",
     accessController.isAuthenticated,
     pagesController.myPosts
     );
+router.get("/specials",
+    accessController.isAuthenticated,
+    pagesController.specials
+    );
+router.get("/users",
+    accessController.isAuthenticated,
+    pagesController.users
+    );
+router.get("/myAccount",
+    accessController.isAuthenticated,
+    pagesController.myAccount
+    );
 
 //User Routes
 router.get("/top5Users",userController.top5Users);

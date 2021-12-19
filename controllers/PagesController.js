@@ -21,3 +21,30 @@ exports.myPosts = async (req,res,next)=>{
         
     }
 }
+exports.specials = async (req,res,next)=>{
+    try {
+        res.render("Specials",{
+            namePage : "Specials"
+        });
+    } catch (error) {
+        
+    }
+}
+exports.users = async (req,res,next)=>{
+    try {
+        res.render("Users",{
+            namePage : "Users"
+        });
+    } catch (error) {
+        
+    }
+}
+exports.myAccount = async (req,res,next)=>{
+    try {
+        res.render("MyAccount",{
+            namePage : "MyAccount"
+        });
+    } catch (error) {
+        
+    }
+}
