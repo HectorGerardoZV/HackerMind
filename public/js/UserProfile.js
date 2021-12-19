@@ -20,7 +20,6 @@ class UserPosts {
             console.log(error);
         }
     }
-
     loadPosts  = ()=>{
         try {
             fetch(this.url="/myPosts/"+this.id)
@@ -92,11 +91,7 @@ class UserPosts {
             this.section.appendChild(postHTML);
         });
     }
-
-
-    
 }
-
 document.addEventListener("DOMContentLoaded",()=>{
     const userPosts = new UserPosts();
     userPosts.loadPosts();

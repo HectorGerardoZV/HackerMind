@@ -5,7 +5,7 @@ const accessController = require ("../controllers/AccessController");
 const pagesController = require ("../controllers/PagesController");
 const dashBoardController = require ("../controllers/DashBoardController");
 const postController = require("../controllers/PostController");
-
+const commentController = require("../controllers/CommentController");
 //router
 const router = express.Router();
 
@@ -61,6 +61,8 @@ router.get("/findPost/:id",postController.findPostsById);
 router.get("/deletePost/:id",postController.deletePost);
 router.post("/editPost",postController.editPost);
 
-
+//Comment Routes
+router.post("/addComment",commentController.addComment);
+router.get("/findComments/:id",commentController.findCommentsByIdPost);
 //Export
 module.exports = router;

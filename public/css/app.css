@@ -10,6 +10,7 @@
 @import "../css/components/CreatePostForm.css";
 @import "../css/components/ActionPost.css";
 @import "../css/components/UserCardSmall.css";
+@import "../css/components/CommentCard.css";
 
 /*CSS pages*/
 @import "../css/Access.css";

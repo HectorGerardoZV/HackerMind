@@ -91,3 +91,19 @@
 .hidden-body {
     overflow: hidden;
 }
+
+.borderOk{
+    border: 4px solid var(--colorGreen);
+    border-radius: 1rem;
+}
+.borderNo{
+    border: 4px solid var(--colorRed);
+    border-radius: 1rem;
+}
+
+.mt-3{
+    margin-top: 3rem;
+}
+.mb-3{
+    margin-bottom: 3rem;
+}
