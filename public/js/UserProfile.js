@@ -9,7 +9,6 @@ class UserPosts {
         this.loadLocalUser();
         this.listenerComment();
     }
-    
     loadLocalUser = ()=>{
         try {
             fetch(this.url+"/myUser")
@@ -266,8 +265,6 @@ class UserPosts {
         `;
         section.appendChild(commentHTML);
     }
-
-
 }
 document.addEventListener("DOMContentLoaded",()=>{
     const userPosts = new UserPosts();

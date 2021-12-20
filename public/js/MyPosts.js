@@ -348,7 +348,6 @@ class MyPosts {
     }
 
 }
-
 class ActionPost {
     constructor(){
         this.url = "http://localhost:1000";
