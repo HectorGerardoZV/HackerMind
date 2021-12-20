@@ -274,6 +274,22 @@ class Posts {
         this.url = "http://localhost:1000";
         this.postsList = document.querySelector(".posts");
         this.user = {};
+        this.localUser = {};
+        this.loadLocalUser();
+    }
+    loadLocalUser = ()=>{
+        try {
+            fetch(this.url+"/myUser")
+            .then(response=>{
+                return response.json();
+            }).then(user=>{
+                this.localUser = user;
+            }).catch(error=>{
+                console.log(error);
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
     loadPosts(){
         try {
@@ -454,7 +470,7 @@ class Posts {
                          const date = dateOBJ.getFullYear()+"-"+(dateOBJ.getMonth()+1)+"-"+dateOBJ.getDate();
                         const comment = {
                             content,
-                            idUser: this.user._id,
+                            idUser: this.localUser._id,
                             idPost: element.id,
                             date
                         }
